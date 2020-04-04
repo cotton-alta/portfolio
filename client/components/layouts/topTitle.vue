@@ -1,26 +1,21 @@
 <template>
-  <div class="content">
-    <div class="title">
-      <span>cotton's portfolio</span>
-    </div>
-    <!-- /.title -->
+  <div class="title-wrapper">
+    <span>cotton's portfolio</span>
   </div>
-  <!-- /.container -->
+  <!-- /.title-wrapper -->
 </template>
 
 <script>
 export default {
-    
+  
 }
 </script>
 
 <style lang="scss" scoped>
-.content {
+
+.title-wrapper {
   height: 100px;
   line-height: 100px;
-}
-
-.title {
   text-align: center;
   span {
     font-size: calc(35px + 1.5vw);
@@ -28,4 +23,5 @@ export default {
     color: #ffffff;
   }
 }
+
 </style>

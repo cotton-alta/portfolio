@@ -1,21 +1,11 @@
 <template>
   <div>
-    <headerBox />
     <nuxt />
   </div>
 </template>
 
-<script>
-import headerBox from "~/components/layouts/header.vue"
-
-export default {
-  components: {
-    headerBox
-  }
-}
-</script>
-
 <style>
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
