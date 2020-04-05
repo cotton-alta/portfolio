@@ -1,18 +1,95 @@
 <template>
   <div class="container">
+    <tabTitle :pageTitle="pageTitle"/>
+    <div class="flex-wrapper">
+      <div class="profile-image">
+        <img src="/profileImage.jpg" />
+      </div>
+      <!-- /.profile-image -->
+      <div class="profile-explanation">
+        <p>東京の某大学の学部生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発でプロジェクトマネージャーも務めています。</p>
+        <div class="profile-link">
+          <div><img src="/github.png" /></div>
+          <div><img src="/twitter.png" /></div>
+          <div><img src="/mail.png" /></div>
+        </div>
+        <!-- /.profile-link -->
+      </div>
+      <!-- /.profile-explanation -->
+    </div>
+    <!-- /.flex-wraapper -->
   </div>
+  <!-- /.container -->
 </template>
 
 <script>
+import tabTitle from "~/components/layouts/tabTitle.vue"
+
 export default {
-  
+  components: {
+    tabTitle
+  },
+  data() {
+    return { pageTitle: "PROFILE" }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 
 .container {
-  min-height: 100vh;
+  display: block;
+  min-height: calc(100vh - 80px);
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mq {
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+}
+
+.profile {
+  &-image {
+    width: 40%;
+    text-align: center;
+    margin: 20px 0px;
+    @include mq {
+      width: 30%;
+    }
+    img {
+      width: 80%;
+      border-radius: 50%;
+    }
+  }
+  &-explanation {
+    font-weight: bolder;
+    color: $menu-background;
+    width: 90%;
+    line-height: 30px;
+    @include mq {
+      display: inline-block;
+      width: 70%;
+    }
+    img {
+      width: 2.5rem;
+      margin: 0px 25px;
+    }
+  }
+  &-link {
+    margin: 20px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 </style>

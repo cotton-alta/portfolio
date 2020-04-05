@@ -13,10 +13,10 @@ export default {
       datas: [
         { title: "TOP", href: "/" },
         { title: "PROFILE", href: "/profile" },
-        { title: "SKILLS", href: "/" },
-        { title: "WORKS", href: "/" },
-        { title: "BLOG", href: "/" },
-        { title: "CONTACT", href: "/" },
+        { title: "SKILLS", href: "/skills" },
+        { title: "WORKS", href: "/works" },
+        { title: "BLOG", href: "/blog" },
+        { title: "CONTACT", href: "/contact" },
       ]
     }
   }
@@ -49,6 +49,9 @@ export default {
     font-size: calc(20px + 0.8vw);
     font-weight: bolder;
     color: $main-background;
+    &:hover{
+      color: #ffffff;
+    }
   }
 }
 
