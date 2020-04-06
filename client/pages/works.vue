@@ -2,6 +2,8 @@
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
     <workCard />
+    <workCard />
+    <workCard />
   </div>
   <!-- /.container -->
 </template>
