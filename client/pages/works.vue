@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
-    <workCard />
-    <workCard />
-    <workCard />
+    <div v-for="work in works" :key="work.id">
+      <workCard :work="work"/>
+    </div>
   </div>
   <!-- /.container -->
 </template>
@@ -11,8 +11,13 @@
 <script>
 import tabTitle from "~/components/layouts/tabTitle.vue"
 import workCard from "~/components/ui/card.vue"
+import axios from "axios"
 
 export default {
+  async asyncData({ app }) {
+    let works = JSON.stringify(app.$axios.$get("/api"))
+    return { works }
+  },
   components: {
     tabTitle,
     workCard

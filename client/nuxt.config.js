@@ -49,6 +49,13 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: "http://localhost:3001",
+    proxy: true
+  },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3001'
+    }
   },
   styleResources: {
     scss: ["~assets/style/scss/variables.scss"]
