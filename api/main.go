@@ -13,7 +13,8 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.GET("/api", controllers.WorkList())
+	e.GET("/api/works", controllers.WorkList())
+	e.GET("/api/articles", controllers.ArticleList())
 
 	e.Start(":3001")
 }

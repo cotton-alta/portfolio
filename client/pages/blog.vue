@@ -1,16 +1,27 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
+      <div class="article-wrapper" v-for="article in articles" :key="article.id">
+      <articleCard :card="article"/>
+    </div>
+    <!-- /.work-wrapper -->
   </div>
   <!-- /.container -->
 </template>
 
 <script>
 import tabTitle from "~/components/layouts/tabTitle.vue"
+import articleCard from "~/components/ui/card.vue"
+import axios from "axios"
 
 export default {
+  async asyncData({ app }) {
+    let articles = await app.$axios.$get("/api/articles")
+    return { articles }
+  },
   components: {
-    tabTitle
+    tabTitle,
+    articleCard
   },
   data() {
     return { pageTitle: "BLOG" }
@@ -27,4 +38,10 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.article-wrapper {
+  margin: 30px 0px;
+}
+
+
 </style>

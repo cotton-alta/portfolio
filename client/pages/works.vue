@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
-    <div v-for="work in works" :key="work.id">
-      <workCard :work="work"/>
+    <div class="work-wrapper" v-for="work in works" :key="work.id">
+      <workCard :card="work"/>
     </div>
+    <!-- /.work-wrapper -->
   </div>
   <!-- /.container -->
 </template>
@@ -15,7 +16,7 @@ import axios from "axios"
 
 export default {
   async asyncData({ app }) {
-    let works = JSON.stringify(app.$axios.$get("/api"))
+    let works = await app.$axios.$get("/api/works")
     return { works }
   },
   components: {
@@ -37,4 +38,9 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.work-wrapper {
+  margin: 30px 0px;
+}
+
 </style>

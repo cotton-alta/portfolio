@@ -5,11 +5,11 @@
     <!-- /.img-holder -->
     <div class="card-text">
       <div class="card-title">
-        タイトル
+        {{ card.title }}
       </div>
       <!-- /.title -->
       <div class="card-detail">
-        説明です。
+        {{ card.detail }}
       </div>
       <!-- /.card-detail -->
     </div>
@@ -22,6 +22,7 @@
 import profileImage from "~/static/profileImage.jpg"
 
 export default {
+  props: ["card"],
   data() {
     return { profileImage }
   }
@@ -48,8 +49,8 @@ export default {
     margin-bottom: 10px;
   }
   &-detail {
-    font-size: calc(15px + 0.4vw);
     font-weight: bolder;
+    line-height: 30px;
   }
 }
 

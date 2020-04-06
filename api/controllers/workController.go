@@ -14,7 +14,7 @@ type (
 	}
 )
 
-//WorkList GET:/hello
+//WorkList GET:/works
 func WorkList() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		works := [...]work{
