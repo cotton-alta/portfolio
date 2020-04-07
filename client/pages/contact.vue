@@ -7,8 +7,13 @@
 
 <script>
 import tabTitle from "~/components/layouts/tabTitle.vue"
+import axios from "axios"
 
 export default {
+  async asyncData({ app }) {
+    let works = await app.$axios.$put("/api/works")
+    return { works }
+  },
   components: {
     tabTitle
   },

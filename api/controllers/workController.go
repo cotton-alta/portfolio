@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"portfolio-api/database"
 
 	"github.com/labstack/echo"
 )
@@ -13,6 +14,16 @@ type (
 		Href   string `json:"href"`
 	}
 )
+
+//CreateWork PUT:/works
+func CreateWork() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		title := c.FormValue("title")
+		detail := c.FormValue("detail")
+		database.CreateDynamo(title, detail)
+		return c.String(http.StatusOK, "created item!")
+	}
+}
 
 //WorkList GET:/works
 func WorkList() echo.HandlerFunc {

@@ -14,6 +14,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	e.GET("/api/works", controllers.WorkList())
+	e.PUT("/api/works", controllers.CreateWork())
 	e.GET("/api/articles", controllers.ArticleList())
 
 	e.Start(":3001")
