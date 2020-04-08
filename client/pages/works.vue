@@ -17,6 +17,7 @@ import axios from "axios"
 export default {
   async asyncData({ app }) {
     let works = await app.$axios.$get("/api/works")
+    console.log("works", works)
     return { works }
   },
   components: {

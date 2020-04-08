@@ -5,11 +5,11 @@
     <!-- /.img-holder -->
     <div class="card-text">
       <div class="card-title">
-        {{ card.title }}
+        {{ card.Title }}
       </div>
       <!-- /.title -->
       <div class="card-detail">
-        {{ card.detail }}
+        {{ card.Detail }}
       </div>
       <!-- /.card-detail -->
     </div>

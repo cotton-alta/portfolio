@@ -35,3 +35,16 @@ func CreateDynamo(title string, content string) error {
 	fmt.Println("OK")
 	return err
 }
+
+//GetDynamo get items list
+func GetDynamo() ([]Work, error) {
+	db := dynamo.New(session.New(), &aws.Config{
+		Region: aws.String("ap-northeast-1"),
+	})
+	table := db.Table("portfolio-work")
+
+	var results []Work
+
+	err := table.Get("WorkID", "001").All(&results)
+	return results, err
+}
