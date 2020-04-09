@@ -55,7 +55,7 @@ func CreateWork() echo.HandlerFunc {
 		}
 
 		href, err := database.CreateObject(src, originalname, contentType)
-		database.CreateDynamo(title, detail, href)
+		database.CreateDynamo(title, detail, href, "portfolio-work")
 		return c.String(http.StatusOK, "created item!")
 	}
 }

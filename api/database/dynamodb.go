@@ -28,20 +28,31 @@ type Article struct {
 }
 
 //CreateDynamo create item
-func CreateDynamo(title string, content string, href string) error {
+func CreateDynamo(title string, content string, href string, tableName string) error {
 	db := dynamo.New(session.New(), &aws.Config{
 		Region: aws.String("ap-northeast-1"),
 	})
-	table := db.Table("portfolio-work")
+	table := db.Table(tableName)
+	fmt.Println("tableName", tableName)
+	if tableName == "portfolio-work" {
+		work := Work{WorkID: "001",
+			Timestamp: time.Now().UTC(),
+			Title:     title,
+			Detail:    content,
+			Image:     href}
 
-	work := Work{WorkID: "001",
-		Timestamp: time.Now().UTC(),
-		Title:     title,
-		Detail:    content,
-		Image:     href}
-
-	err := table.Put(work).Run()
-	return err
+		err := table.Put(work).Run()
+		return err
+	} else {
+		article := Article{ArticleID: "001",
+			Timestamp: time.Now().UTC(),
+			Title:     title,
+			Detail:    content,
+			Image:     href}
+		fmt.Println("created table!")
+		err := table.Put(article).Run()
+		return err
+	}
 }
 
 //GetDynamo get items list
@@ -50,7 +61,6 @@ func GetDynamo(tableName string) ([]Work, []Article, error) {
 		Region: aws.String("ap-northeast-1"),
 	})
 	table := db.Table(tableName)
-	fmt.Println("tableName", tableName)
 	if tableName == "portfolio-work" {
 		var results []Work
 		err := table.Get("WorkID", "001").All(&results)

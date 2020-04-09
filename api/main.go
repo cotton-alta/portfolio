@@ -16,6 +16,7 @@ func main() {
 	e.GET("/api/works", controllers.WorkList())
 	e.PUT("/api/works", controllers.CreateWork())
 	e.GET("/api/articles", controllers.ArticleList())
+	e.PUT("/api/articles", controllers.CreateArticle())
 
 	e.Start(":3001")
 }
