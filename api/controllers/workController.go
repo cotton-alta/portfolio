@@ -63,7 +63,7 @@ func CreateWork() echo.HandlerFunc {
 //WorkList GET:/works
 func WorkList() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		works, _ := database.GetDynamo()
+		works, _, _ := database.GetDynamo("portfolio-work")
 		return c.JSON(http.StatusOK, works)
 	}
 }

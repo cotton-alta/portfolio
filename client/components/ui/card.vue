@@ -12,6 +12,14 @@
         {{ card.Detail }}
       </div>
       <!-- /.card-detail -->
+      <div class="card-link">
+        <a href="#">作品はこちら</a>
+      </div>
+      <!-- /.card-link -->
+      <div class="card-github">
+        <a href="#">Git Hub</a>
+      </div>
+      <!-- /.card-github -->
     </div>
     <!-- /.card-text -->
   </div>
@@ -35,8 +43,9 @@ export default {
     border-radius: 5px;
   }
   &-text {
-    height: 100px;
+    // height: 100px;
     margin: 10px;
+    padding-bottom: 15px;
   }
   &-title {
     font-size: calc(20px + 0.5vw);
@@ -46,6 +55,21 @@ export default {
   &-detail {
     font-weight: bolder;
     line-height: 30px;
+  }
+  &-link {
+    color: $menu-background;
+    font-weight: bolder;
+    line-height: 30px;
+    a {
+      color: $menu-background;
+    }
+  }
+  &-github {
+    font-weight: bolder;
+    line-height: 30px;
+    a {
+      color: $menu-background;
+    }
   }
 }
 

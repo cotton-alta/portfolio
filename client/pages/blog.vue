@@ -17,6 +17,7 @@ import axios from "axios"
 export default {
   async asyncData({ app }) {
     let articles = await app.$axios.$get("/api/articles")
+    console.log("articles", articles)
     return { articles }
   },
   components: {
@@ -42,6 +43,5 @@ export default {
 .article-wrapper {
   margin: 30px 0px;
 }
-
 
 </style>

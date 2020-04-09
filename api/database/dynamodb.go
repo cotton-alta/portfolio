@@ -18,6 +18,15 @@ type Work struct {
 	Image     string
 }
 
+//Article dynamodb model
+type Article struct {
+	ArticleID string
+	Timestamp time.Time
+	Title     string
+	Detail    string
+	Image     string
+}
+
 //CreateDynamo create item
 func CreateDynamo(title string, content string, href string) error {
 	db := dynamo.New(session.New(), &aws.Config{
@@ -32,19 +41,23 @@ func CreateDynamo(title string, content string, href string) error {
 		Image:     href}
 
 	err := table.Put(work).Run()
-	fmt.Println("OK")
 	return err
 }
 
 //GetDynamo get items list
-func GetDynamo() ([]Work, error) {
+func GetDynamo(tableName string) ([]Work, []Article, error) {
 	db := dynamo.New(session.New(), &aws.Config{
 		Region: aws.String("ap-northeast-1"),
 	})
-	table := db.Table("portfolio-work")
-
-	var results []Work
-
-	err := table.Get("WorkID", "001").All(&results)
-	return results, err
+	table := db.Table(tableName)
+	fmt.Println("tableName", tableName)
+	if tableName == "portfolio-work" {
+		var results []Work
+		err := table.Get("WorkID", "001").All(&results)
+		return results, nil, err
+	} else {
+		var results []Article
+		err := table.Get("ArticleID", "001").All(&results)
+		return nil, results, err
+	}
 }

@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"portfolio-api/database"
 
 	"github.com/labstack/echo"
 )
@@ -17,18 +18,7 @@ type (
 //ArticleList GET:/articles
 func ArticleList() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		articles := [...]article{
-			{
-				Title:  "初投稿",
-				Detail: "こちら初投稿です！",
-				Href:   "#",
-			},
-			{
-				Title:  "ポートフォリオサイトを公開",
-				Detail: "ポートフォリオサイトを公開しました。",
-				Href:   "#",
-			},
-		}
+		_, articles, _ := database.GetDynamo("portfolio-article")
 		return c.JSON(http.StatusOK, articles)
 	}
 }
