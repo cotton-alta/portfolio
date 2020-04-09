@@ -9,7 +9,7 @@ import (
 )
 
 //CreateObject create s3 bucket
-func CreateObject(src multipart.File) (string, error) {
+func CreateObject(src multipart.File, originalname string, contentType string) (string, error) {
 	db, err := session.NewSession(&aws.Config{
 		Region: aws.String("ap-northeast-1")},
 	)
@@ -17,14 +17,16 @@ func CreateObject(src multipart.File) (string, error) {
 		return "", err
 	}
 	bucket := "cotton-portfolio"
-	filename := "originalname"
-	// file, err := os.Open(filename)
+	filename := originalname
+	fileType := contentType
 
 	uploader := s3manager.NewUploader(db)
 	result, err := uploader.Upload(&s3manager.UploadInput{
-		Bucket: aws.String(bucket),
-		Key:    aws.String(filename),
-		Body:   src,
+		Bucket:      aws.String(bucket),
+		Key:         aws.String(filename),
+		ACL:         aws.String("public-read"),
+		ContentType: aws.String(fileType),
+		Body:        src,
 	})
 	return result.Location, err
 }

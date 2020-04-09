@@ -1,6 +1,6 @@
 <template>
   <div class="card-wrapper">
-    <div class="img-holder" :style="`background-image: url(${profileImage})`">
+    <div class="img-holder" :style="`background-image: url(${card.Image})`">
     </div>
     <!-- /.img-holder -->
     <div class="card-text">
@@ -19,13 +19,8 @@
 </template>
 
 <script>
-import profileImage from "~/static/profileImage.jpg"
-
 export default {
-  props: ["card"],
-  data() {
-    return { profileImage }
-  }
+  props: ["card"]
 }
 </script>
 

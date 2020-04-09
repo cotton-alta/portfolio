@@ -14,7 +14,7 @@
         <!-- /.form-text -->
         <label for="image" class="form-label">画像</label>
         <div class="form-text">
-          <input type="file" name="image" />
+          <input type="file" v-on:change="uploadImage" name="file" />
         </div>
         <!-- /.form-text -->
         <div @click="postForm" class="form-submit"><input type="submit" value="投稿"/></div>
@@ -36,15 +36,21 @@ export default {
     return { 
       pageTitle: "作品投稿",
       title: "",
-      detail: ""
+      detail: "",
+      image: ""
     }
   },
   methods: {
+    uploadImage: function() {
+      this.image = event.target.files[0]
+      console.log("OK!")
+    },
     postForm: function() {
       let formData = new FormData()
 
       formData.append('title', this.title)
       formData.append('detail', this.detail)
+      formData.append('file', this.image)
       axios.put("/api/works",
         formData,
         { header: { 'Content-Type': 'multipart/form-data' } }
