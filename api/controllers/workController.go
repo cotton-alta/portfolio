@@ -20,7 +20,17 @@ func CreateWork() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		title := c.FormValue("title")
 		detail := c.FormValue("detail")
-		database.CreateDynamo(title, detail)
+
+		file, err := c.FormFile("file")
+		if err != nil {
+			return err
+		}
+		src, err := file.Open()
+		if err != nil {
+			return err
+		}
+		href, err := database.CreateObject(src)
+		database.CreateDynamo(title, detail, href)
 		return c.String(http.StatusOK, "created item!")
 	}
 }
@@ -29,18 +39,6 @@ func CreateWork() echo.HandlerFunc {
 func WorkList() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		works, _ := database.GetDynamo()
-		// works := [...]work{
-		// 	{
-		// 		Title:  "MonsterCounter",
-		// 		Detail: "魔剤でランキングを競うアプリです。",
-		// 		Href:   "#",
-		// 	},
-		// 	{
-		// 		Title:  "OsiCounter",
-		// 		Detail: "推しキャラを愛でながら時間を計るアプリです。",
-		// 		Href:   "#",
-		// 	},
-		// }
 		return c.JSON(http.StatusOK, works)
 	}
 }

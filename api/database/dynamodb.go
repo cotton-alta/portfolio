@@ -19,7 +19,7 @@ type Work struct {
 }
 
 //CreateDynamo create item
-func CreateDynamo(title string, content string) error {
+func CreateDynamo(title string, content string, href string) error {
 	db := dynamo.New(session.New(), &aws.Config{
 		Region: aws.String("ap-northeast-1"),
 	})
@@ -29,7 +29,7 @@ func CreateDynamo(title string, content string) error {
 		Timestamp: time.Now().UTC(),
 		Title:     title,
 		Detail:    content,
-		Image:     "#"}
+		Image:     href}
 
 	err := table.Put(work).Run()
 	fmt.Println("OK")

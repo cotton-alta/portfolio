@@ -12,6 +12,11 @@
           <textarea name="detail" rows="3" v-model="detail"></textarea>
         </div>
         <!-- /.form-text -->
+        <label for="image" class="form-label">画像</label>
+        <div class="form-text">
+          <input type="file" name="image" />
+        </div>
+        <!-- /.form-text -->
         <div @click="postForm" class="form-submit"><input type="submit" value="投稿"/></div>
       </div>
       <!-- /.form-wrapper -->
