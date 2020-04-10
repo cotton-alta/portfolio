@@ -8,19 +8,13 @@ import (
 	"github.com/labstack/echo"
 )
 
-type (
-	article struct {
-		Title  string `json:"title"`
-		Detail string `json:"detail"`
-		Href   string `json:"href"`
-	}
-)
-
 // CreateArticle PUT:/articles
 func CreateArticle() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		title := c.FormValue("title")
-		detail := c.FormValue("detail")
+		article := map[string]string{
+			"title": c.FormValue("title"),
+			"detail": c.FormValue("detail"),
+		}
 
 		file, err := c.FormFile("file")
 		if err != nil {
@@ -41,7 +35,7 @@ func CreateArticle() echo.HandlerFunc {
 		}
 
 		href, err := database.CreateObject(src, originalname, contentType)
-		database.CreateDynamo(title, detail, href, "portfolio-article")
+		database.CreateDynamo(article, href, "portfolio-article")
 		return c.String(http.StatusOK, "created item!")
 	}
 }

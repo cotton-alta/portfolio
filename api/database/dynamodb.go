@@ -15,6 +15,8 @@ type Work struct {
 	Timestamp time.Time
 	Title     string
 	Detail    string
+	Link 		string
+	Github   string
 	Image     string
 }
 
@@ -28,7 +30,7 @@ type Article struct {
 }
 
 //CreateDynamo create item
-func CreateDynamo(title string, content string, href string, tableName string) error {
+func CreateDynamo(data map[string]string, href string, tableName string) error {
 	db := dynamo.New(session.New(), &aws.Config{
 		Region: aws.String("ap-northeast-1"),
 	})
@@ -37,8 +39,10 @@ func CreateDynamo(title string, content string, href string, tableName string) e
 	if tableName == "portfolio-work" {
 		work := Work{WorkID: "001",
 			Timestamp: time.Now().UTC(),
-			Title:     title,
-			Detail:    content,
+			Title:     data["title"],
+			Detail:    data["detail"],
+			Link: 		 data["link"],
+			Github:    data["github"],
 			Image:     href}
 
 		err := table.Put(work).Run()
@@ -46,8 +50,8 @@ func CreateDynamo(title string, content string, href string, tableName string) e
 	} else {
 		article := Article{ArticleID: "001",
 			Timestamp: time.Now().UTC(),
-			Title:     title,
-			Detail:    content,
+			Title:     data["title"],
+			Detail:    data["detail"],
 			Image:     href}
 		fmt.Println("created table!")
 		err := table.Put(article).Run()

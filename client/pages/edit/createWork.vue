@@ -12,6 +12,16 @@
           <textarea name="detail" rows="3" v-model="detail"></textarea>
         </div>
         <!-- /.form-text -->
+        <label for="link" class="form-label">作品リンク</label>
+        <div class="form-text">
+          <input type="text" name="link" v-model="link" />
+        </div>
+        <!-- /.form-text -->
+        <label for="github" class="form-label">git hub</label>
+        <div class="form-text">
+          <input type="text" name="github" v-model="github" />
+        </div>
+        <!-- /.form-text -->
         <label for="image" class="form-label">画像</label>
         <div class="form-text">
           <input type="file" v-on:change="uploadImage" name="file" />
@@ -37,19 +47,22 @@ export default {
       pageTitle: "作品投稿",
       title: "",
       detail: "",
-      image: ""
+      image: "",
+      link: "",
+      github: ""
     }
   },
   methods: {
     uploadImage: function() {
       this.image = event.target.files[0]
-      console.log("OK!")
     },
     postForm: function() {
       let formData = new FormData()
 
       formData.append('title', this.title)
       formData.append('detail', this.detail)
+      formData.append('link', this.link)
+      formData.append('github', this.github)
       formData.append('file', this.image)
       axios.put("/api/works",
         formData,

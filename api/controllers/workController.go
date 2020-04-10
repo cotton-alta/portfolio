@@ -9,14 +9,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-type (
-	work struct {
-		Title  string `json:"title"`
-		Detail string `json:"detail"`
-		Href   string `json:"href"`
-	}
-)
-
 //GetContentType detect file content type
 func GetContentType(file multipart.File) (string, error) {
 	buffer := make([]byte, 512)
@@ -33,8 +25,12 @@ func GetContentType(file multipart.File) (string, error) {
 //CreateWork PUT:/works
 func CreateWork() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		title := c.FormValue("title")
-		detail := c.FormValue("detail")
+		work := map[string]string{
+			"title": c.FormValue("title"),
+			"detail": c.FormValue("detail"),
+			"link": c.FormValue("link"),
+			"github": c.FormValue("github"),
+		}
 
 		file, err := c.FormFile("file")
 		if err != nil {
@@ -55,7 +51,7 @@ func CreateWork() echo.HandlerFunc {
 		}
 
 		href, err := database.CreateObject(src, originalname, contentType)
-		database.CreateDynamo(title, detail, href, "portfolio-work")
+		database.CreateDynamo(work, href, "portfolio-work")
 		return c.String(http.StatusOK, "created item!")
 	}
 }

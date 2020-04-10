@@ -4,7 +4,11 @@
     </div>
     <!-- /.img-holder -->
     <div class="card-text">
-      <div class="card-title">
+      <div v-if="pageJadge" class="card-title">
+        <nuxt-link :to="`/articles/${card.Title}`">{{ card.Title }}</nuxt-link>
+      </div>
+      <!-- /.title -->
+      <div v-else class="card-title">
         {{ card.Title }}
       </div>
       <!-- /.title -->
@@ -12,12 +16,12 @@
         {{ card.Detail }}
       </div>
       <!-- /.card-detail -->
-      <div class="card-link">
-        <a href="#">作品はこちら</a>
+      <div v-if="!pageJadge" class="card-link">
+        <a :href="card.Link">作品はこちら</a>
       </div>
       <!-- /.card-link -->
-      <div class="card-github">
-        <a href="#">Git Hub</a>
+      <div v-if="!pageJadge" class="card-github">
+        <a :href="card.Github">Git Hub</a>
       </div>
       <!-- /.card-github -->
     </div>
@@ -28,7 +32,14 @@
 
 <script>
 export default {
-  props: ["card"]
+  props: ["card"],
+  data() {
+    let pageJadge = false
+    if(this.$route.path === "/blog") {
+      pageJadge = true
+    }
+    return { pageJadge }
+  }
 }
 </script>
 
@@ -43,7 +54,6 @@ export default {
     border-radius: 5px;
   }
   &-text {
-    // height: 100px;
     margin: 10px;
     padding-bottom: 15px;
   }
@@ -51,6 +61,9 @@ export default {
     font-size: calc(20px + 0.5vw);
     font-weight: bolder;
     margin-bottom: 10px;
+    a {
+      color: $menu-background;
+    }
   }
   &-detail {
     font-weight: bolder;
