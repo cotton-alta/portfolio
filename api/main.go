@@ -2,7 +2,7 @@ package main
 
 import (
 	"portfolio-api/controllers"
-
+	"portfolio-api/interceptors"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -14,7 +14,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	e.GET("/api/works", controllers.WorkList())
-	e.PUT("/api/works", controllers.CreateWork())
+	e.PUT("/api/works", controllers.CreateWork(), interceptor.Auth())
 	e.GET("/api/articles", controllers.ArticleList())
 	e.PUT("/api/articles", controllers.CreateArticle())
 
