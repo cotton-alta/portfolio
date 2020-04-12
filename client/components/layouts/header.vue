@@ -1,8 +1,15 @@
 <template>
-  <div class="header-wrapper">
-    <div v-for="data in datas" :key="data.id" class="header-card">
-      <nuxt-link class="header-name" :to="data.href">{{ data.title }}</nuxt-link>
+  <div>
+    <div class="header-wrapper">
+      <div v-for="data in datas" :key="data.id" class="header-card">
+        <nuxt-link class="header-name" :to="data.href">{{ data.title }}</nuxt-link>
+      </div>
+      <!-- /.header-card -->
     </div>
+    <!-- /.header-wrapper -->
+    <div class="hamburger-wrapper">
+    </div>
+    <!-- /.hamburger-wrapper -->
   </div>
 </template>
 
@@ -51,6 +58,17 @@ export default {
     color: $main-background;
     &:hover{
       color: #ffffff;
+    }
+  }
+}
+
+.hamburger {
+  &-wrapper {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    @include mq {
+      display: none;
     }
   }
 }

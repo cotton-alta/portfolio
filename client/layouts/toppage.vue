@@ -1,8 +1,14 @@
 <template>
   <div>
-    <nuxt />
+      <nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  layoutTransition: 'layout'
+}
+</script>
 
 <style>
 
