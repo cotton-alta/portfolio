@@ -8,6 +8,38 @@
     </div>
     <!-- /.header-wrapper -->
     <div class="hamburger-wrapper">
+      <div 
+        :class="{
+          'hamburger-icon--close': !isOpen,
+          'hamburger-icon--open': isOpen
+        }"
+        @click="hamburgerOpen"
+      >
+        <span></span>
+      </div>
+      <!-- /.hamburger-icon -->
+      <div 
+        :class="{
+          'hamburger-content--open': isOpen,
+          'hamburger-content--close': !isOpen
+        }"
+      >
+        <div class="hamburger-flex">
+          <div
+            class="hamburger-card"
+            v-for="data in datas"
+            :key="data.id"
+            @click="hamburgerOpen"
+          >
+            <nuxt-link class="hamaburger-name" :to="data.href">
+              {{ data.title }}
+            </nuxt-link>
+          </div>
+          <!-- /.hamburger-card -->
+        </div>
+        <!-- /.hamburger-flex -->
+      </div>
+      <!-- /.hamburger-content -->
     </div>
     <!-- /.hamburger-wrapper -->
   </div>
@@ -24,7 +56,13 @@ export default {
         { title: "WORKS", href: "/works" },
         { title: "BLOG", href: "/blog" },
         { title: "CONTACT", href: "/contact" },
-      ]
+      ],
+      isOpen: false
+    }
+  },
+  methods: {
+    hamburgerOpen: function() {
+      this.isOpen = !this.isOpen
     }
   }
 }
@@ -67,9 +105,93 @@ export default {
     height: 50px;
     line-height: 50px;
     width: 100%;
+    padding-right: 10px;
+    text-align: right;
     @include mq {
       display: none;
     }
+  }
+  &-icon--close {
+    display: inline-block;
+    width: 32px;
+    height: 34px;
+    z-index: 9999;
+    vertical-align: middle;
+    cursor: pointer;
+    span, span::before, span::after {
+      position: absolute;
+      height: 4px;
+      width: 32px;
+      background: $menu-background;
+      display: block;
+      border-radius: 3px;
+      content: "";
+    }
+    span::before {
+      bottom: -13px;
+    }
+    span::after {
+      bottom: -26px;
+    }
+  }
+  &-icon--open {
+    display: inline-block;
+    width: 32px;
+    height: 34px;
+    vertical-align: middle;
+    cursor: pointer;
+    span, span::before, span::after {
+      z-index: 9999;
+      position: absolute;
+      height: 4px;
+      width: 32px;
+      background: $main-background;
+      display: block;
+      border-radius: 3px;
+      content: "";
+    }
+    span::before {
+      bottom: -13px;
+    }
+    span::after {
+      bottom: -26px;
+    }
+  }
+  &-content {
+    &--open, &--close {
+      position: fixed;
+      background: $menu-background;
+      top: 0;
+      left: 20%;
+      height: 100%;
+      width: 80%;
+    }
+    &--open {
+      transform: translateX(0%);
+      transition: .3s ease-in-out;
+    }
+    &--close {
+      transform: translateX(100%);
+      transition: .3s ease-in-out;
+    }
+  }
+  &-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &-card {
+    text-align: center;
+    a {
+      font-size: calc(20px + 0.7vw);
+      font-weight: bolder;
+      color: $main-background;
+      text-decoration: none;
+    }
+  }
+  &-none {
+    display: none;
   }
 }
 
