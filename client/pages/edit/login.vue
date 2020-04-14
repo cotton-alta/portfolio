@@ -24,6 +24,10 @@ import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
 
 export default {
+  nuxtServerInit({ store }) {
+    store.dispatch("setUser", localStorage.vuex.user)
+    console.log(localStorage)
+  },
   middleware({ store, app, redirect }) {
   },
   components: {

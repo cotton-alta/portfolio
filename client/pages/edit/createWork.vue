@@ -39,7 +39,10 @@ import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
 
 export default {
-  middleware({ store, app, redirect }) {
+  nuxtServerInit({ store, app, redirect }) {
+    store.dispatch("setUser", localStorage.vuex.user)
+  },
+  middleware({ store, redirect }) {
     if(!store.getters["isAuthenticated"]) {
       redirect('/')
     }

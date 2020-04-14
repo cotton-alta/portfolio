@@ -68,7 +68,7 @@ export default {
     }
   }
   &-detail {
-    font-weight: bolder;
+    // font-weight: bolder;
     line-height: 30px;
   }
   &-link {

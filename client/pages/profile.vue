@@ -79,7 +79,7 @@ export default {
     }
   }
   &-explanation {
-    font-weight: bolder;
+    // font-weight: bolder;
     color: $menu-background;
     width: 90%;
     line-height: 30px;

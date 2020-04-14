@@ -46,7 +46,7 @@ export default {
   line-height: 30px;
   text-align: center;
   p {
-    font-weight: bolder;
+    // font-weight: bolder;
     color: $menu-background;
     margin: 0 auto;
     width: 90%;
