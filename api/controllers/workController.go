@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"mime/multipart"
 	"net/http"
+	"regexp"
 	"portfolio-api/database"
 
 	"github.com/labstack/echo"
@@ -61,5 +62,22 @@ func WorkList() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		works, _, _ := database.GetDynamo("portfolio-work")
 		return c.JSON(http.StatusOK, works)
+	}
+}
+
+// DeleteWork DELETE:/works
+func DeleteWork() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		workName := c.Param("work")
+		work, _, _ := database.GetDynamoSingle("portfolio-work", workName)
+		reg := regexp.MustCompile(`.+/(.+?)([\?#;].*)?$`)
+		itemName := reg.ReplaceAllString(work[0].Image, "$1")
+		fmt.Println("itemName", itemName)
+		err := database.DeleteObject(itemName)
+		err = database.DeleteDynamo("portfolio-work", workName, work[0].Timestamp)
+		if err != nil {
+			return err
+		}
+		return c.String(http.StatusOK, "item deleted!")
 	}
 }

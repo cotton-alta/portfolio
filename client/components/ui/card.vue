@@ -50,9 +50,10 @@ export default {
     color: $menu-background;
     margin: 0 auto;
     width: 80%;
-    background-color: #252526;
+    // background-color: #252526;
+    background-color: $black-background;
     border-radius: 5px;
-    border: 3px solid $menu-background;
+    border: 2px solid $menu-background;
   }
   &-text {
     margin: 10px;

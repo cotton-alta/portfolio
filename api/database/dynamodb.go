@@ -84,12 +84,32 @@ func GetDynamoSingle(tableName string, itemName string) ([]Work, []Article, erro
 	table := db.Table(tableName)
 	if tableName == "portfolio-work" {
 		var result []Work
-		err := table.Get("ArticleID", "001").Filter("Title = ?", itemName).All(&result)
+		fmt.Println("get single")
+		err := table.Get("WorkID", "001").Filter("Title = ?", itemName).All(&result)
 		return result, nil, err
 	} else {
 		var result []Article
 		err := table.Get("ArticleID", "001").Filter("Title = ?", itemName).All(&result)
 		fmt.Println("itemName", itemName)
 		return nil, result, err
+	}
+}
+
+//DeleteDynamo delete item
+func DeleteDynamo(tableName string, itemName string, timestamp time.Time) error {
+	db := dynamo.New(session.New(), &aws.Config{
+		Region: aws.String("ap-northeast-1"),
+	})
+	table := db.Table(tableName)
+	if tableName == "portfolio-work" {
+		var result []Work
+		err := table.Get("WorkID", "001").Filter("Title = ?", itemName).All(&result)
+		err = table.Delete("WorkID", "001").Range("Timestamp", result[0].Timestamp).Run()
+		return err
+	} else {
+		var result []Article
+		err := table.Get("ArticleID", "001").Filter("Title = ?", itemName).All(&result)
+		err = table.Delete("ArticleID", "001").Range("Timestamp", result[0].Timestamp).Run()
+		return err
 	}
 }

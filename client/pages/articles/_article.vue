@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
-    {{ data }}
+    <div class="article-wrapper">
+      <p>{{ Detail }}</p>
+      <img :src="Image" />
+    </div>
+    <!-- /.article-wrapper -->
   </div>
   <!-- /.container -->
 </template>
@@ -14,7 +18,7 @@ export default {
   async asyncData({ app, route }) {
     let urlParameter = encodeURIComponent(route.params.article),
         data = await app.$axios.$get(`/api/articles/${urlParameter}`)
-    return { data }
+    return { ...data[0] }
   },
   components: {
     tabTitle
@@ -33,4 +37,23 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.article-wrapper {
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+  p {
+    font-weight: bolder;
+    color: $menu-background;
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 80%;
+    border-radius: 3px;
+  }
+}
+
 </style>

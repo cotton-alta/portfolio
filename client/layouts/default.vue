@@ -2,15 +2,18 @@
   <div>
     <headerBox />
     <nuxt />
+    <footerBox />
   </div>
 </template>
 
 <script>
 import headerBox from "~/components/layouts/header.vue"
+import footerBox from "~/components/layouts/footer.vue"
 
 export default {
   components: {
-    headerBox
+    headerBox,
+    footerBox
   }
 }
 </script>

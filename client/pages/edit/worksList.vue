@@ -1,18 +1,15 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
-    <div class="work-wrapper" v-for="work in works" :key="work.id">
+    <div class="card-wrapper" v-for="work in works" :key="work.id">
       <workCard :card="work"/>
     </div>
-    <!-- /.work-wrapper -->
   </div>
-  <!-- /.container -->
 </template>
 
 <script>
+import workCard from "~/components/ui/editCard.vue"
 import tabTitle from "~/components/layouts/tabTitle.vue"
-import workCard from "~/components/ui/card.vue"
-import axios from "axios"
 
 export default {
   async asyncData({ app }) {
@@ -21,11 +18,11 @@ export default {
     return { works }
   },
   components: {
-    tabTitle,
-    workCard
+    workCard,
+    tabTitle
   },
   data() {
-    return { pageTitle: "WORKS" }
+    return { pageTitle: "作品一覧" }
   }
 }
 </script>
@@ -40,8 +37,8 @@ export default {
   margin: 0 auto;
 }
 
-.work-wrapper {
-  margin: 30px 0px;
+.card-wrapper {
+  margin-bottom: 30px;
 }
 
 </style>

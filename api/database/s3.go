@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 //CreateObject create s3 bucket
@@ -29,4 +30,24 @@ func CreateObject(src multipart.File, originalname string, contentType string) (
 		Body:        src,
 	})
 	return result.Location, err
+}
+
+func DeleteObject(itemName string) error {
+	db, err := session.NewSession(&aws.Config{
+		Region: aws.String("ap-northeast-1")},
+	)
+	if err != nil {
+		return err
+	}
+	svc := s3.New(db)
+	bucket := "cotton-portfolio"
+	_, err = svc.DeleteObject(&s3.DeleteObjectInput{
+		Bucket: aws.String(bucket),
+		Key: aws.String(itemName),
+	})
+	err = svc.WaitUntilObjectNotExists(&s3.HeadObjectInput{
+		Bucket: aws.String(bucket),
+		Key: aws.String(itemName),
+	})
+	return err
 }
