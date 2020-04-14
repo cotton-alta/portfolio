@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+import CookieParser from 'cookie'
 export const strict = false
 
 export const state = () => ({
@@ -11,8 +13,15 @@ export const mutations = {
 }
 
 export const actions = {
+  nuxtServerInit({ commit }, { req }) {
+    if(req.headers.cookie) {
+      let data = CookieParser.parse(req.headers.cookie)
+      commit("setUser", data.user)
+    }
+  },
   setUser({ commit }, payload) {
     commit('setUser', payload)
+    Cookies.set("user", payload)
   }
 }
 
