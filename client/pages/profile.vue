@@ -7,6 +7,10 @@
       </div>
       <!-- /.profile-image -->
       <div class="profile-explanation">
+        <div class="profile-name">
+          <span>コットン</span>
+        </div>
+        <!-- /.profile-name -->
         <p>東京の某大学の学部生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発でプロジェクトマネージャーも務めています。</p>
         <div class="profile-link">
           <div><img src="/github.png" /></div>
@@ -51,7 +55,7 @@ export default {
   flex-direction: column;
   align-items: center;
   @include mq {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     flex-direction: row;
   }
@@ -64,6 +68,7 @@ export default {
     margin: 20px 0px;
     @include mq {
       width: 30%;
+      text-align: left;
     }
     img {
       width: 80%;
@@ -82,6 +87,14 @@ export default {
     img {
       width: 2.5rem;
       margin: 0px 25px;
+    }
+  }
+  &-name {
+    margin: 20px 0px 15px 0px;
+    text-align: center;
+    span {
+      font-size: calc(20px + 0.5vw);
+      font-weight: bolder;
     }
   }
   &-link {

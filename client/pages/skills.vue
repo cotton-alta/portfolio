@@ -4,6 +4,7 @@
     <div class="logo-wrapper">
       <skill class="logo-card" :skill="skill" v-for="skill in skills" :key="skill.id"/>
     </div>
+    <!-- /.logo-wrapper -->
   </div>
   <!-- /.container -->
 </template>
@@ -62,14 +63,18 @@ export default {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     @include mq {
       width: 600px;
+      justify-content: space-between;
     }
   }
   &-card {
-    margin: 20px 30px;
+    margin: 20px 15px;
+    @include mq(sm) {
+      margin: 20px 30px;
+    }
   }
 }
 

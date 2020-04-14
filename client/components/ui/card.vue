@@ -52,6 +52,7 @@ export default {
     width: 80%;
     background-color: #252526;
     border-radius: 5px;
+    border: 3px solid $menu-background;
   }
   &-text {
     margin: 10px;
@@ -91,7 +92,6 @@ export default {
   padding-top: 56.25%;
   background-position: center center;
   background-size: cover;
-  border-radius: 5px;
 }
 
 </style>

@@ -15,6 +15,7 @@
         }"
         @click="hamburgerOpen"
       >
+        <p></p>
         <span></span>
       </div>
       <!-- /.hamburger-icon -->
@@ -156,6 +157,14 @@ export default {
     span::after {
       bottom: -26px;
     }
+    p {
+      position: absolute;
+      z-index: 1000;
+      width: 32px;
+      height: 34px;
+      content: "";
+      cursor: pointer;
+    }
   }
   &-content {
     &--open, &--close {
@@ -189,9 +198,6 @@ export default {
       color: $main-background;
       text-decoration: none;
     }
-  }
-  &-none {
-    display: none;
   }
 }
 

@@ -39,7 +39,7 @@ export default {
   methods: {
     login: function() {
       console.log(this.username, this.password)
-      this.$axios.$get("api/works", {
+      this.$axios.$get("api/login", {
         auth: {
           username: this.username,
           password: this.password

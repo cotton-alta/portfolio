@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
-
+    {{ data }}
   </div>
   <!-- /.container -->
 </template>
@@ -11,10 +11,11 @@ import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
 
 export default {
-  // async asyncData() {
-  //   let data = await axios.get()
-  //   return { data }
-  // },
+  async asyncData({ app, route }) {
+    let urlParameter = encodeURIComponent(route.params.article),
+        data = await app.$axios.$get(`/api/articles/${urlParameter}`)
+    return { data }
+  },
   components: {
     tabTitle
   },

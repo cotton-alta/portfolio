@@ -47,3 +47,14 @@ func ArticleList() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, articles)
 	}
 }
+
+//GetArticle GET:/atricles/:article
+func GetArticle() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		articleName := c.Param("article")
+		fmt.Println("articleName ", articleName)
+		_, article, _ := database.GetDynamoSingle("portfolio-article", articleName)
+		fmt.Println("article ", article)
+		return c.JSON(http.StatusOK, article)
+	}
+}

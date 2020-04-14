@@ -75,3 +75,21 @@ func GetDynamo(tableName string) ([]Work, []Article, error) {
 		return nil, results, err
 	}
 }
+
+//GetDynamoSingle get item
+func GetDynamoSingle(tableName string, itemName string) ([]Work, []Article, error) {
+	db := dynamo.New(session.New(), &aws.Config{
+		Region: aws.String("ap-northeast-1"),
+	})
+	table := db.Table(tableName)
+	if tableName == "portfolio-work" {
+		var result []Work
+		err := table.Get("ArticleID", "001").Filter("Title = ?", itemName).All(&result)
+		return result, nil, err
+	} else {
+		var result []Article
+		err := table.Get("ArticleID", "001").Filter("Title = ?", itemName).All(&result)
+		fmt.Println("itemName", itemName)
+		return nil, result, err
+	}
+}
