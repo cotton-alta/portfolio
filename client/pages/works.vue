@@ -17,7 +17,9 @@ import axios from "axios"
 export default {
   async asyncData({ app }) {
     let works = await app.$axios.$get("/api/works")
-    works = works.reverse()
+    if(works != null) {
+      works = works.reverse()
+    }
     return { works }
   },
   components: {

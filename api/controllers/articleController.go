@@ -3,6 +3,7 @@ package controllers
 import (
 	"net/http"
 	"fmt"
+	"regexp"
 	"portfolio-api/database"
 
 	"github.com/labstack/echo"
@@ -56,5 +57,22 @@ func GetArticle() echo.HandlerFunc {
 		_, article, _ := database.GetDynamoSingle("portfolio-article", articleName)
 		fmt.Println("article ", article)
 		return c.JSON(http.StatusOK, article)
+	}
+}
+
+//DeleteArticle DELETE:/articles
+func DeleteArticle() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		articleName := c.Param("article")
+		_, article, _ := database.GetDynamoSingle("portfolio-article", articleName)
+		reg := regexp.MustCompile(`.+/(.+?)([\?#;].*)?$`)
+		itemName := reg.ReplaceAllString(article[0].Image, "$1")
+		fmt.Println("itemName", itemName)
+		err := database.DeleteObject(itemName)
+		err = database.DeleteDynamo("portfolio-article", articleName, article[0].Timestamp)
+		if err != nil {
+			return err
+		}
+		return c.String(http.StatusOK, "item deleted!")
 	}
 }

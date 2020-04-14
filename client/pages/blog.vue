@@ -17,7 +17,9 @@ import axios from "axios"
 export default {
   async asyncData({ app }) {
     let articles = await app.$axios.$get("/api/articles")
-    articles = articles.reverse()
+    if(articles != null) {
+      articles = articles.reverse()
+    }
     return { articles }
   },
   components: {

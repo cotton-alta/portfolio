@@ -185,15 +185,21 @@ export default {
     }
   }
   &-flex {
-    height: 100%;
+    height: 60%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
   }
   &-card {
     text-align: center;
     a {
-      font-size: calc(20px + 0.7vw);
+      font-size: calc(30px + 1vw);
       font-weight: bolder;
       color: $main-background;
       text-decoration: none;

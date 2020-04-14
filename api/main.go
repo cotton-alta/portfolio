@@ -20,6 +20,7 @@ func main() {
 	e.GET("/api/articles", controllers.ArticleList())
 	e.PUT("/api/articles", controllers.CreateArticle())
 	e.GET("/api/articles/:article", controllers.GetArticle())
+	e.DELETE("/api/articles/:article", controllers.DeleteArticle())
 
 	e.Start(":3001")
 }

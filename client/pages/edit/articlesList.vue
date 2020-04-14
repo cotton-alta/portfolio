@@ -9,7 +9,7 @@ import editList from "~/components/layouts/editList.vue"
 
 export default {
   async asyncData({ app }) {
-    let items = await app.$axios.$get("/api/works")
+    let items = await app.$axios.$get("/api/articles")
     if(items != null) {
       items = items.reverse()
     }
