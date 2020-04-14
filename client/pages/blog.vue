@@ -39,10 +39,13 @@ export default {
 
 .container {
   display: block;
-  min-height: calc(100vh - 80px);
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
+  min-height: calc(100vh - 50px);
+  @include mq {
+    min-height: calc(100vh - 80px);
+  }
 }
 
 .article-wrapper {
