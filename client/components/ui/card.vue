@@ -47,10 +47,9 @@ export default {
 
 .card {
   &-wrapper {
-    color: $menu-background;
+    color: $string-color;
     margin: 0 auto;
     width: 80%;
-    // background-color: #252526;
     background-color: $black-background;
     border-radius: 5px;
     border: 2px solid $menu-background;
@@ -64,26 +63,25 @@ export default {
     font-weight: bolder;
     margin-bottom: 10px;
     a {
-      color: $menu-background;
+      color: $string-color;
     }
   }
   &-detail {
-    // font-weight: bolder;
     line-height: 30px;
   }
   &-link {
-    color: $menu-background;
+    color: $string-color;
     font-weight: bolder;
     line-height: 30px;
     a {
-      color: $menu-background;
+      color: $string-color;
     }
   }
   &-github {
     font-weight: bolder;
     line-height: 30px;
     a {
-      color: $menu-background;
+      color: $string-color;
     }
   }
 }

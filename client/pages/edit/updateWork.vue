@@ -8,9 +8,12 @@
 import tabTitle from "~/components/layouts/tabTitle.vue"
 
 export default {
-  components: {
-    tabTitle
+  middleware({ store, redirect }) {
+    if(!store.getters["isAuthenticated"]) {
+      redirect('/')
+    }
   },
+  components: { tabTitle },
   data() {
     return { pageTitle: "作品編集" }
   }

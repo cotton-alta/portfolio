@@ -4,7 +4,7 @@
       <img :src="skill.img" />
     </div>
     <!-- /.skill-image -->
-    <p>{{ skill.name }}</p>
+    <span>{{ skill.name }}</span>
     <p>経験年数 : {{ skill.years }}</p>
   </div>
   <!-- /.skill-wrapper -->
@@ -22,9 +22,12 @@ export default {
   &-wrapper {
     width: 120px;
     text-align: center;
-    font-weight: bolder;
     line-height: 30px;
-    color: $menu-background;
+    color: $string-color;
+    span {
+      font-weight: bolder;
+      font-size: calc(15px + 0.3vw);
+    }
   }
   &-image {
     height: 100px;

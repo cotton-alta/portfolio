@@ -10,6 +10,11 @@
 import editButton from "~/components/ui/button.vue"
 
 export default {
+  middleware({ store, redirect }) {
+    if(!store.getters["isAuthenticated"]) {
+      redirect('/')
+    }
+  },
   components: { editButton },
   data() {
     return {

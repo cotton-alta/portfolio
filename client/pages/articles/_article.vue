@@ -46,8 +46,7 @@ export default {
   line-height: 30px;
   text-align: center;
   p {
-    // font-weight: bolder;
-    color: $menu-background;
+    color: $string-color;
     margin: 0 auto;
     width: 90%;
     text-align: left;

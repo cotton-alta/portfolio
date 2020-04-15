@@ -33,15 +33,15 @@ export default {
     return {
       pageTitle: "SKILLS",
       skills: {
-        apache: { name: "apache", img: apache, years: "1年" },
-        centos: { name: "centos", img: centos, years: "1年" },
-        css: { name: "css", img: css, years: "1年" },
+        apache: { name: "apache", img: apache, years: "2年" },
+        centos: { name: "centos", img: centos, years: "2年" },
+        css: { name: "css", img: css, years: "2年" },
         django: { name: "django", img: django, years: "1年" },
-        html: { name: "html", img: html, years: "1年" },
-        javascript: { name: "javascript", img: javascript, years: "1年" },
-        mongo: { name: "mongo", img: mongo, years: "1年" },
-        node: { name: "node", img: node, years: "1年" },
-        nuxt: { name: "nuxt", img: nuxt, years: "1年" },
+        html: { name: "html", img: html, years: "2年" },
+        javascript: { name: "javascript", img: javascript, years: "2年" },
+        mongo: { name: "mongo", img: mongo, years: "2年" },
+        node: { name: "node", img: node, years: "2年" },
+        nuxt: { name: "nuxt", img: nuxt, years: "2年" },
       }
     }
   }

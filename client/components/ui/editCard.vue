@@ -34,14 +34,14 @@ export default {
     border: 2px solid $menu-background;
   }
   &-title {
-    color: $menu-background;
+    color: $string-color;
     font-size: calc(20px + 0.4vw);
     font-weight: bolder;
     margin: 10px 0px 10px 10px;
   }
   &-content {
     line-height: 30px;
-    color: $menu-background;
+    color: $string-color;
     font-size: calc(15px + 0.3vw);
     font-weight: bolder;
     margin: 10px 0px 10px 10px;

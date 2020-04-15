@@ -13,9 +13,9 @@
         <!-- /.profile-name -->
         <p>東京の某大学の学部生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発でプロジェクトマネージャーも務めています。</p>
         <div class="profile-link">
-          <div><img src="/github.png" /></div>
-          <div><img src="/twitter.png" /></div>
-          <div><img src="/mail.png" /></div>
+          <div><a href="https://github.com/cotton-alta"><img src="/github.png" /></a></div>
+          <div><a href="https://twitter.com/cotton_alta_"><img src="/twitter.png" /></a></div>
+          <div><a href="mailto:chinoknct@gmail.com"><img src="/mail.png" /></a></div>
         </div>
         <!-- /.profile-link -->
       </div>
@@ -30,9 +30,7 @@
 import tabTitle from "~/components/layouts/tabTitle.vue"
 
 export default {
-  components: {
-    tabTitle
-  },
+  components: { tabTitle },
   data() {
     return { pageTitle: "PROFILE" }
   }
@@ -79,8 +77,7 @@ export default {
     }
   }
   &-explanation {
-    // font-weight: bolder;
-    color: $menu-background;
+    color: $string-color;
     width: 90%;
     line-height: 30px;
     @include mq {

@@ -24,15 +24,7 @@ import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
 
 export default {
-  nuxtServerInit({ store }) {
-    store.dispatch("setUser", localStorage.vuex.user)
-    console.log(localStorage)
-  },
-  middleware({ store, app, redirect }) {
-  },
-  components: {
-    tabTitle
-  },
+  components: { tabTitle },
   data() {
     return { 
       pageTitle: "LOGIN",
@@ -42,7 +34,6 @@ export default {
   },
   methods: {
     login: function() {
-      console.log(this.username, this.password)
       this.$axios.$get("api/login", {
         auth: {
           username: this.username,
@@ -54,7 +45,6 @@ export default {
           this.$router.push("/edit/createWork")
         })
         .catch(err => {
-          console.log("err", err)
           this.$router.go({path: this.$router.currentRoute.path, force: true})
         })
     }
@@ -63,6 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .container {
   display: block;
   width: 90%;
@@ -118,4 +109,5 @@ export default {
     }
   }
 }
+
 </style>

@@ -29,6 +29,11 @@ import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
 
 export default {
+  middleware({ store, redirect }) {
+    if(!store.getters["isAuthenticated"]) {
+      redirect('/')
+    }
+  },
   components: {
     tabTitle
   },

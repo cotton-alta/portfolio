@@ -8,6 +8,11 @@
 import editList from "~/components/layouts/editList.vue"
 
 export default {
+  middleware({ store, redirect }) {
+    if(!store.getters["isAuthenticated"]) {
+      redirect('/')
+    }
+  },
   async asyncData({ app }) {
     let items = await app.$axios.$get("/api/works")
     if(items != null) {

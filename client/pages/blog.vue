@@ -26,9 +26,6 @@ export default {
     tabTitle,
     articleCard
   },
-  mounted() {
-    console.log("route", this.$route.path)
-  },
   data() {
     return { pageTitle: "BLOG" }
   }
