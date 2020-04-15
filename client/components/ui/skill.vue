@@ -6,6 +6,7 @@
     <!-- /.skill-image -->
     <span>{{ skill.name }}</span>
     <p>経験年数 : {{ skill.years }}</p>
+    <p v-html="skill.level"></p>
   </div>
   <!-- /.skill-wrapper -->
 </template>
@@ -22,11 +23,14 @@ export default {
   &-wrapper {
     width: 120px;
     text-align: center;
-    line-height: 30px;
     color: $string-color;
     span {
+      line-height: 33px;
       font-weight: bolder;
-      font-size: calc(15px + 0.3vw);
+      font-size: calc(17px + 0.3vw);
+    }
+    p {
+      line-height: 23px;
     }
   }
   &-image {

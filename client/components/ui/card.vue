@@ -16,8 +16,7 @@
         {{ modifiedTime }}
       </div>
       <!-- /.card-time -->
-      <div class="card-detail">
-        {{ card.Detail }}
+      <div class="card-detail" v-html="card.Detail">
       </div>
       <!-- /.card-detail -->
       <div v-if="!pageJadge" class="card-link">

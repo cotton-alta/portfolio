@@ -1,6 +1,10 @@
 <template>
   <div>
     <div class="header-wrapper">
+      <div class="header-card">
+        <!-- <span class="header-name" @click="linkToTop">TOP</span> -->
+        <a href="/" class="header-name">TOP</a>
+      </div>
       <div v-for="data in datas" :key="data.id" class="header-card">
         <nuxt-link class="header-name" :to="data.href">{{ data.title }}</nuxt-link>
       </div>
@@ -26,6 +30,9 @@
         }"
       >
         <div class="hamburger-flex">
+          <div class="hamburger-card">
+            <a class="hamaburger-name" href="/">TOP</a>
+          </div>
           <div
             class="hamburger-card"
             v-for="data in datas"
@@ -51,7 +58,6 @@ export default {
   data() {
     return {
       datas: [
-        { title: "TOP", href: "/" },
         { title: "PROFILE", href: "/profile" },
         { title: "SKILLS", href: "/skills" },
         { title: "WORKS", href: "/works" },
@@ -60,6 +66,11 @@ export default {
       ],
       isOpen: false
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", () => {
+      this.isOpen = false
+    })
   },
   methods: {
     hamburgerOpen: function() {

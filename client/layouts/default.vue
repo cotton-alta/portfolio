@@ -1,6 +1,6 @@
 <template>
   <div>
-    <headerBox />
+    <headerBox id="top"/>
     <nuxt />
     <footerBox />
     <scrollButton v-show="show" class="scroll-button"/>
@@ -14,7 +14,9 @@ import scrollButton from "~/components/ui/topScrollButton.vue"
 
 export default {
   data() {
-    return { show: false }
+    return { 
+      show: false
+    }
   },
   components: {
     headerBox,
@@ -30,6 +32,7 @@ export default {
 </script>
 
 <style>
+
 html {
   font-family: 'Roboto', 'Noto Sans JP';
   font-size: 16px;

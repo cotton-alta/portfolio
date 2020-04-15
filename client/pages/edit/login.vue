@@ -42,7 +42,7 @@ export default {
       })
         .then(result => {
           this.$store.dispatch("setUser", result)
-          this.$router.push("/edit/createWork")
+          this.$router.push("/edit/management")
         })
         .catch(err => {
           this.$router.go({path: this.$router.currentRoute.path, force: true})

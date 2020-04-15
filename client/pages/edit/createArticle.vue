@@ -51,10 +51,11 @@ export default {
       console.log("OK!")
     },
     postForm: function() {
-      let formData = new FormData()
+      let formData = new FormData(),
+          escapeDetail = this.detail.replace(/\n/g, '<br>')
 
       formData.append('title', this.title)
-      formData.append('detail', this.detail)
+      formData.append('detail', escapeDetail)
       formData.append('file', this.image)
       axios.put("/api/articles",
         formData,

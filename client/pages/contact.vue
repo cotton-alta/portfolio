@@ -13,6 +13,7 @@
       </div>
       <!-- /.form-text -->
       <div class="form-submit"><input type="submit" value="送信"/></div>
+      <div class="form-submit" @click="sendMessage">送信</div>
     </div>
     <!-- /.form-wrapper -->
   </div>
@@ -32,6 +33,13 @@ export default {
       pageTitle: "CONTACT" ,
       email: "",
       content: ""
+    }
+  },
+  methods: {
+    sendMessage: function() {
+      axios.post("/api/contact"
+
+      )
     }
   }
 }

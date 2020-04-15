@@ -2,8 +2,10 @@
   <div class="container">
     <tabTitle :pageTitle="pageTitle"/>
     <div class="article-wrapper">
-      <p>{{ Detail }}</p>
+      <p>{{ Timestamp }}</p>
+      <p v-html="Detail"></p>
       <img :src="Image" />
+      <twitterButton class="article-twitter" :title="Title"/>
     </div>
     <!-- /.article-wrapper -->
   </div>
@@ -12,6 +14,7 @@
 
 <script>
 import tabTitle from "~/components/layouts/tabTitle.vue"
+import twitterButton from "~/components/ui/twitterButton.vue"
 import axios from "axios"
 import moment from "moment"
 
@@ -23,7 +26,8 @@ export default {
     return { ...data[0] }
   },
   components: {
-    tabTitle
+    tabTitle,
+    twitterButton
   },
   data() {
     return { pageTitle: this.$route.params.article }
@@ -43,20 +47,26 @@ export default {
   }
 }
 
-.article-wrapper {
-  width: 100%;
-  line-height: 30px;
-  text-align: center;
-  p {
-    color: $string-color;
-    margin: 0 auto;
-    width: 90%;
-    text-align: left;
-    margin-bottom: 20px;
+.article {
+  &-wrapper {
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    p {
+      color: $string-color;
+      margin: 0 auto;
+      width: 90%;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 80%;
+      border-radius: 3px;
+    }
   }
-  img {
-    width: 80%;
-    border-radius: 3px;
+  &-twitter {
+    margin-top: 30px;
   }
 }
 

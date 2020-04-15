@@ -21,6 +21,7 @@ func main() {
 	e.PUT("/api/articles", controllers.CreateArticle())
 	e.GET("/api/articles/:article", controllers.GetArticle())
 	e.DELETE("/api/articles/:article", controllers.DeleteArticle())
+	e.POST("/api/contact", controllers.SendMessage())
 
 	e.Start(":3001")
 }

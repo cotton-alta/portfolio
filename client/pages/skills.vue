@@ -26,6 +26,8 @@ import vue from "~/static/logo/vue.png"
 import git from "~/static/logo/git.png"
 import dynamo from "~/static/logo/dynamo.png"
 import s3 from "~/static/logo/s3.png"
+import element from "~/static/logo/element.png"
+import go from "~/static/logo/go.png"
 
 export default {
   components: {
@@ -36,20 +38,102 @@ export default {
     return {
       pageTitle: "SKILLS",
       skills: {
-        html: { name: "html", img: html, years: "2年" },
-        css: { name: "css", img: css, years: "2年" },
-        javascript: { name: "javascript", img: javascript, years: "2年" },
-        apache: { name: "apache", img: apache, years: "2年" },
-        centos: { name: "centos", img: centos, years: "2年" },
-        django: { name: "django", img: django, years: "1年" },
-        mongo: { name: "mongo", img: mongo, years: "2年" },
-        node: { name: "node", img: node, years: "2年" },
-        nuxt: { name: "nuxt", img: nuxt, years: "2年" },
-        git: { name: "git", img: git, years: "2年" },
-        DynamoDB: { name: "DynamoDB", img: dynamo, years: "2年" },
-        S3: { name: "S3", img: s3, years: "2年" },
-        Python: { name: "Python", img: s3, years: "2年" },
-        C: { name: "C", img: s3, years: "2年" },
+        html: { 
+          name: "HTML5", 
+          img: html,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+        },
+        css: {
+          name: "CSS3",
+          img: css,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+        },
+        javascript: {
+          name: "JavaScript",
+          img: javascript, 
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+        },
+        node: {
+          name: "Node.js",
+          img: node,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
+        },
+        vue: {
+          name: "Vue.js",
+          img: vue,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+        },
+        nuxt: {
+          name: "Nuxt.js",
+          img: nuxt,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;" 
+        },
+        Python: {
+          name: "Python",
+          img: python,
+          years: "1年",
+          level: "&#9733;&#9733;&#9733;&#9734;&#9734;"  
+        },
+        django: {
+          name: "Django",
+          img: django,
+          years: "1年",
+          level: "&#9733;&#9733;&#9734;&#9734;&#9734;"
+        },
+        go: {
+          name: "Go",
+          img: go,
+          years: "1年",
+          level: "&#9733;&#9733;&#9734;&#9734;&#9734;" 
+        },
+        centos: {
+          name: "CentOS",
+          img: centos,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9734;&#9734;"
+        },
+        apache: {
+          name: "Apache",
+          img: apache,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
+        },
+        mongo: {
+          name: "MongoDB",
+          img: mongo,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
+        },
+        DynamoDB: {
+          name: "DynamoDB",
+          img: dynamo,
+          years: "1年",
+          level: "&#9733;&#9733;&#9734;&#9734;&#9734;"
+          },
+        S3: { 
+          name: "S3",
+          img: s3,
+          years: "1年",
+          level: "&#9733;&#9733;&#9733;&#9734;&#9734;"
+        },
+        Element: {
+          name: "Element UI",
+          img: element,
+          years: "1年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
+          },
+        git: {
+          name: "Git",
+          img: git,
+          years: "2年",
+          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"  
+        },
       }
     }
   }

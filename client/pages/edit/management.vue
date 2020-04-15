@@ -23,7 +23,7 @@ export default {
         { title: "記事投稿", href: "/edit/createArticle" },
         { title: "作品管理", href: "/edit/worksList" },
         { title: "記事管理", href: "/edit/articlesList" },
-        { title: "ログアウト", href: "/api/logout" },
+        { title: "ログアウト", href: "/edit/logout" },
       ]
     }
   }

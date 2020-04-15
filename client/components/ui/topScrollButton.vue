@@ -1,7 +1,7 @@
 <template>
   <transition name="scroll">
-    <div class="scroll-wrapper" @click="scrollTop">
-      <span></span>
+    <div class="scroll-wrapper">
+      <a v-scroll-to="'#top'"></a>
     </div>
     <!-- /.scroll-wrapper -->
   </transition>
@@ -11,11 +11,6 @@
 export default {
  transition: {
    name: 'scroll'
- },
- methods: {
-   scrollTop: function() {
-     console.log("OK")
-   }
  }
 }
 </script>
@@ -29,13 +24,13 @@ export default {
   opacity: 0.6;
   background: $menu-background;
   border-radius: 50%;
-  span {
+  a {
     display: block;
     position: relative;
     height: 100%;
     width: 100%;
   }
-  span::before {
+  a::before {
     position: absolute;
     top: 0.25rem;
     left: 0;

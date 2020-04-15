@@ -20,8 +20,13 @@ export const actions = {
     }
   },
   setUser({ commit }, payload) {
-    commit('setUser', payload)
-    Cookies.set("user", payload)
+    if(payload === null) {
+      commit('setUser', null)
+      Cookies.remove("user");
+    } else {
+      commit('setUser', payload)
+      Cookies.set("user", payload)
+    }
   }
 }
 
