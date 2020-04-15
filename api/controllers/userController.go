@@ -5,6 +5,7 @@ import (
 	"github.com/ashwanthkumar/slack-go-webhook"
 	"net/http"
 	"os"
+	"fmt"
 	"github.com/joho/godotenv"
 )
 
@@ -19,7 +20,8 @@ func SendMessage() echo.HandlerFunc {
 		err := godotenv.Load()
     if err != nil {
         return err
-    }
+		}
+		fmt.Println("form", c.FormValue("content"))
 		emailField := slack.Field{Title: "メールアドレス", Value: c.FormValue("email")}
 		contentField := slack.Field{Title: "お問い合わせ内容", Value: c.FormValue("content")}
 		

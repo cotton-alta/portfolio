@@ -12,8 +12,8 @@
         <textarea name="content" rows="3" v-model="content"></textarea>
       </div>
       <!-- /.form-text -->
-      <div class="form-submit"><input type="submit" value="送信"/></div>
       <div class="form-submit" @click="sendMessage">送信</div>
+      <div class="form-alert">{{ alert }}</div>
     </div>
     <!-- /.form-wrapper -->
   </div>
@@ -32,14 +32,26 @@ export default {
     return { 
       pageTitle: "CONTACT" ,
       email: "",
-      content: ""
+      content: "",
+      alert: ""
     }
   },
   methods: {
     sendMessage: function() {
-      axios.post("/api/contact"
+      if(this.email === "" || this.content === "") {
+        this.alert = "お問い合わせ内容を正しく入力してください。"
+        return
+      }
+      let formData = new FormData()
+      formData.append('email', this.email)
+      formData.append('content', this.content)
 
-      )
+      axios.post("/api/contact",
+        formData,
+        { header: { 'Content-Type': 'multipart/form-data' } }
+      ).then(result => {
+        this.$router.push("/result")
+      })
     }
   }
 }
@@ -98,17 +110,19 @@ export default {
   &-submit {
     width: 60%;
     max-width: 300px;
-    input {
-      font-size: calc(15px + 0.3vw);
-      font-weight: bolder;
-      background-color: $menu-background;
-      color: $main-background;
-      width: 100%;
-      margin-top: 40px;
-      line-height: 2rem;
-      border-radius: 5px;
-      display: inline-block;
-    }
+    font-size: calc(15px + 0.3vw);
+    font-weight: bolder;
+    background-color: $menu-background;
+    color: $main-background;
+    line-height: 2.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+  }
+  &-alert {
+    padding-top: 20px;
+    color: rgba(245, 19, 19, 0.575);
   }
 }
 </style>

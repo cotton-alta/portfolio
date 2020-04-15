@@ -19,7 +19,6 @@ func Auth() echo.MiddlewareFunc {
 			return true, nil
 		}
 		err = errors.New("no login")
-		fmt.Println(os.Getenv("USER"))
 		return false, err
 	})
 }

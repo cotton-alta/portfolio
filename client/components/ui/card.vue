@@ -16,7 +16,7 @@
         {{ modifiedTime }}
       </div>
       <!-- /.card-time -->
-      <div class="card-detail" v-html="card.Detail">
+      <div class="card-detail" v-html="modifiedText">
       </div>
       <!-- /.card-detail -->
       <div v-if="!pageJadge" class="card-link">
@@ -39,14 +39,23 @@ import moment from "moment"
 export default {
   props: ["card"],
   data() {
-    let pageJadge = false
+    let pageJadge = false,
+        modifiedText = ""
     if(this.$route.path === "/blog") {
       pageJadge = true
+      if(this.card.Detail.length >= 100) {
+        modifiedText = this.card.Detail.substring(0, 80) + "  [...]"
+      } else {
+        modifiedText = this.card.Detail
+      }
+    } else {
+      modifiedText = this.card.Detail
     }
     let modifiedTime = moment(this.card.Timestamp).format('LLL')
     return { 
       pageJadge,
-      modifiedTime
+      modifiedTime,
+      modifiedText
     }
   }
 }
