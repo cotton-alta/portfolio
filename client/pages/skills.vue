@@ -23,6 +23,9 @@ import node from "~/static/logo/node.png"
 import nuxt from "~/static/logo/nuxt.png"
 import python from "~/static/logo/python.png"
 import vue from "~/static/logo/vue.png"
+import git from "~/static/logo/git.png"
+import dynamo from "~/static/logo/dynamo.png"
+import s3 from "~/static/logo/s3.png"
 
 export default {
   components: {
@@ -33,15 +36,20 @@ export default {
     return {
       pageTitle: "SKILLS",
       skills: {
+        html: { name: "html", img: html, years: "2年" },
+        css: { name: "css", img: css, years: "2年" },
+        javascript: { name: "javascript", img: javascript, years: "2年" },
         apache: { name: "apache", img: apache, years: "2年" },
         centos: { name: "centos", img: centos, years: "2年" },
-        css: { name: "css", img: css, years: "2年" },
         django: { name: "django", img: django, years: "1年" },
-        html: { name: "html", img: html, years: "2年" },
-        javascript: { name: "javascript", img: javascript, years: "2年" },
         mongo: { name: "mongo", img: mongo, years: "2年" },
         node: { name: "node", img: node, years: "2年" },
         nuxt: { name: "nuxt", img: nuxt, years: "2年" },
+        git: { name: "git", img: git, years: "2年" },
+        DynamoDB: { name: "DynamoDB", img: dynamo, years: "2年" },
+        S3: { name: "S3", img: s3, years: "2年" },
+        Python: { name: "Python", img: s3, years: "2年" },
+        C: { name: "C", img: s3, years: "2年" },
       }
     }
   }
@@ -64,17 +72,23 @@ export default {
 .logo {
   &-wrapper {
     margin: 0 auto;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    &::after{
+      content:"";
+      display: block;
+      width:30%;
+    }
     @include mq {
       width: 600px;
       justify-content: space-between;
     }
   }
   &-card {
-    margin: 20px 15px;
+    margin: 20px 10px;
     @include mq(sm) {
       margin: 20px 30px;
     }

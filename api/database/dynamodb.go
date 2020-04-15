@@ -38,7 +38,7 @@ func CreateDynamo(data map[string]string, href string, tableName string) error {
 	fmt.Println("tableName", tableName)
 	if tableName == "portfolio-work" {
 		work := Work{WorkID: "001",
-			Timestamp: time.Now().UTC(),
+			Timestamp: time.Now(),
 			Title:     data["title"],
 			Detail:    data["detail"],
 			Link: 		 data["link"],

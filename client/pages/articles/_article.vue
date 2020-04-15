@@ -13,11 +13,13 @@
 <script>
 import tabTitle from "~/components/layouts/tabTitle.vue"
 import axios from "axios"
+import moment from "moment"
 
 export default {
   async asyncData({ app, route }) {
     let urlParameter = encodeURIComponent(route.params.article),
         data = await app.$axios.$get(`/api/articles/${urlParameter}`)
+    data[0].Timestamp = moment(data[0].Timestamp).format("LLL")
     return { ...data[0] }
   },
   components: {

@@ -3,17 +3,28 @@
     <headerBox />
     <nuxt />
     <footerBox />
+    <scrollButton v-show="show" class="scroll-button"/>
   </div>
 </template>
 
 <script>
 import headerBox from "~/components/layouts/header.vue"
 import footerBox from "~/components/layouts/footer.vue"
+import scrollButton from "~/components/ui/topScrollButton.vue"
 
 export default {
+  data() {
+    return { show: false }
+  },
   components: {
     headerBox,
-    footerBox
+    footerBox,
+    scrollButton
+  },
+  mounted() {
+    window.addEventListener("scroll", () => {
+      this.show = (window.scrollY > 150)
+    })
   }
 }
 </script>
@@ -35,6 +46,12 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.scroll-button {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
 }
 
 </style>

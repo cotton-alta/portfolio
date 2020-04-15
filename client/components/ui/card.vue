@@ -12,6 +12,10 @@
         {{ card.Title }}
       </div>
       <!-- /.title -->
+      <div class="card-time">
+        {{ modifiedTime }}
+      </div>
+      <!-- /.card-time -->
       <div class="card-detail">
         {{ card.Detail }}
       </div>
@@ -31,6 +35,8 @@
 </template>
 
 <script>
+import moment from "moment"
+
 export default {
   props: ["card"],
   data() {
@@ -38,7 +44,11 @@ export default {
     if(this.$route.path === "/blog") {
       pageJadge = true
     }
-    return { pageJadge }
+    let modifiedTime = moment(this.card.Timestamp).format('LLL')
+    return { 
+      pageJadge,
+      modifiedTime
+    }
   }
 }
 </script>
@@ -56,7 +66,7 @@ export default {
   }
   &-text {
     margin: 10px;
-    padding-bottom: 15px;
+    // padding-bottom: 10px;
   }
   &-title {
     font-size: calc(20px + 0.5vw);
@@ -66,7 +76,12 @@ export default {
       color: $string-color;
     }
   }
+  &-time {
+    margin: 5px 0px;
+    line-height: 30px;
+  }
   &-detail {
+    margin: 5px 0px;
     line-height: 30px;
   }
   &-link {

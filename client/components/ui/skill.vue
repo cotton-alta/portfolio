@@ -34,8 +34,8 @@ export default {
     line-height: 100px;
     text-align: center;
     img {
-    vertical-align: middle;
-      width: 80%;
+      vertical-align: middle;
+      width: 70%;
     }
   }
 }
