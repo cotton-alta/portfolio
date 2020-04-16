@@ -2,7 +2,6 @@ package interceptor
 
 import (
 	"os"
-	"fmt"
 	"github.com/joho/godotenv"
 	"errors"
 	"github.com/labstack/echo/middleware"
