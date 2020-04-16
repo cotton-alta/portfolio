@@ -2,6 +2,7 @@ package interceptor
 
 import (
 	"os"
+	"fmt"
 	"github.com/joho/godotenv"
 	"errors"
 	"github.com/labstack/echo/middleware"
@@ -13,7 +14,9 @@ func Auth() echo.MiddlewareFunc {
 		err := godotenv.Load()
     if err != nil {
         return false, err
-    }
+		}
+		fmt.Println("USER", os.Getenv("USER"))
+		fmt.Println("PASSWORD", os.Getenv("PASSWORD"))
 		if username == os.Getenv("USER") && password == os.Getenv("PASSWORD") {
 			return true, nil
 		}
