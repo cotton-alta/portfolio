@@ -121,6 +121,7 @@ export default {
   &-submit {
     width: 60%;
     max-width: 300px;
+    margin-bottom: 30px;
     input {
       font-size: calc(15px + 0.3vw);
       font-weight: bolder;

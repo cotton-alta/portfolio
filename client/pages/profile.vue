@@ -11,7 +11,7 @@
           <span>コットン</span>
         </div>
         <!-- /.profile-name -->
-        <p>東京の某大学の学部生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発でプロジェクトマネージャーも務めています。</p>
+        <p>東京の某大学の学部3年生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発にも積極的に取り組んでいます。</p>
         <div class="profile-link">
           <div><a href="https://github.com/cotton-alta"><img src="/github.png" /></a></div>
           <div><a href="https://twitter.com/cotton_alta_"><img src="/twitter.png" /></a></div>

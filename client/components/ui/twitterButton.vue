@@ -10,7 +10,7 @@
 export default {
   props: ["title"],
   data() {
-    let path = encodeURIComponent("http://cotton.suzuya.org"),
+    let path = encodeURIComponent("https://cotton-portfolio.org") + `/articles/${this.title}`,
         text = "[" + this.title + "]"
     return {
       twitterLink: `https://twitter.com/intent/tweet?url=${path}&text=${text}&lang=ja`

@@ -4,6 +4,7 @@ $string-color: rgb(216, 216, 216);
 $black-background: #323233;
 
 $breakpoints: (
+  'xs': 'screen and (min-width: 350px)',
   'sm': 'screen and (min-width: 450px)',
   'md': 'screen and (min-width: 768px)',
   'lg': 'screen and (min-width: 1000px)',

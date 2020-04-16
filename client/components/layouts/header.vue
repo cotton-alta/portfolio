@@ -115,13 +115,16 @@ export default {
 .hamburger {
   &-wrapper {
     height: 50px;
-    line-height: 50px;
+    line-height: 60px;
     width: 100%;
-    padding-right: 10px;
+    padding-right: 16px;
     text-align: right;
     @include mq {
       display: none;
     }
+  }
+  &-icon {
+    transition: all 0.3s;
   }
   &-icon--close {
     display: inline-block;
@@ -153,20 +156,25 @@ export default {
     vertical-align: middle;
     cursor: pointer;
     span, span::before, span::after {
+      transition: all 0.3s;
       z-index: 9999;
       position: absolute;
       height: 4px;
       width: 32px;
-      background: $main-background;
+      background: $menu-background;
       display: block;
       border-radius: 3px;
       content: "";
     }
     span::before {
-      bottom: -13px;
+      transform: rotate(45deg);
+      background: $main-background;
+      bottom: -11px;
     }
     span::after {
-      bottom: -26px;
+      bottom: -11px;
+      background: $main-background;
+      transform: rotate(-45deg);
     }
     p {
       position: absolute;

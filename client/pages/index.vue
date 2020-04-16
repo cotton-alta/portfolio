@@ -17,7 +17,7 @@ export default {
     topButton
   },
   data() {
-    return { link: {title: "ckick here !", href: "/profile"} }
+    return { link: {title: "CLICK HERE", href: "/profile"} }
   }
 }
 </script>
@@ -25,6 +25,8 @@ export default {
 <style>
 .container {
   min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

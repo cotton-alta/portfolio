@@ -36,6 +36,7 @@ export default {
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 30px;
   min-height: calc(100vh - 50px);
   @include mq {
     min-height: calc(100vh - 80px);

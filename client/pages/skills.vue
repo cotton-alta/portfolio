@@ -164,7 +164,7 @@ export default {
     &::after{
       content:"";
       display: block;
-      width:30%;
+      width:60%;
     }
     @include mq {
       width: 600px;

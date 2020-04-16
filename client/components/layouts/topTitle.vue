@@ -18,9 +18,12 @@ export default {
   line-height: 100px;
   text-align: center;
   span {
-    font-size: calc(35px + 1.5vw);
     font-weight: bolder;
     color: #ffffff;
+    font-size: calc(35px + 0.5vw);
+    @include mq(xs) {
+      font-size: calc(35px + 1.5vw);
+    }
   }
 }
 
