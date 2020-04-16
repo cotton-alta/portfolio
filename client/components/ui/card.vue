@@ -78,6 +78,7 @@ export default {
   }
   &-title {
     font-size: calc(20px + 0.5vw);
+    line-height: calc(25px + 0.5vw);
     font-weight: bolder;
     margin-bottom: 10px;
     a {
