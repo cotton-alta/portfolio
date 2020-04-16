@@ -15,9 +15,7 @@ func Auth() echo.MiddlewareFunc {
     if err != nil {
         return false, err
 		}
-		fmt.Println("USER", os.Getenv("USER"))
-		fmt.Println("PASSWORD", os.Getenv("PASSWORD"))
-		if username == os.Getenv("USER") && password == os.Getenv("PASSWORD") {
+		if username == os.Getenv("GOUSER") && password == os.Getenv("PASSWORD") {
 			return true, nil
 		}
 		err = errors.New("no login")

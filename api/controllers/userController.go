@@ -11,7 +11,7 @@ import (
 
 func Login() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		return c.String(http.StatusOK, "login user!")
+		return c.String(http.StatusOK, "authenticatedUser")
 	}
 }
 
