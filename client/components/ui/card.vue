@@ -41,7 +41,7 @@ export default {
   data() {
     let pageJadge = false,
         modifiedText = ""
-    if(this.$route.path === "/blog") {
+    if(this.$route.path === "/news") {
       pageJadge = true
       if(this.card.Detail.length >= 100) {
         modifiedText = this.card.Detail.substring(0, 80) + "  [...]"
@@ -52,7 +52,7 @@ export default {
       modifiedText = this.card.Detail
     }
     let modifiedTime = moment(this.card.Timestamp).format('LLL')
-    return { 
+    return {
       pageJadge,
       modifiedTime,
       modifiedText
