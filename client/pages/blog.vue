@@ -27,7 +27,7 @@ export default {
     articleCard
   },
   data() {
-    return { pageTitle: "BLOG" }
+    return { pageTitle: "NEWS" }
   }
 }
 </script>

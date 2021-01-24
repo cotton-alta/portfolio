@@ -61,7 +61,7 @@ export default {
         { title: "PROFILE", href: "/profile" },
         { title: "SKILLS", href: "/skills" },
         { title: "WORKS", href: "/works" },
-        { title: "BLOG", href: "/blog" },
+        { title: "NEWS", href: "/blog" },
         { title: "CONTACT", href: "/contact" },
       ],
       isOpen: false
