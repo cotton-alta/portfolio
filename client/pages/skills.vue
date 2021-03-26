@@ -42,19 +42,19 @@ export default {
           name: "HTML5", 
           img: html,
           years: "2年",
-          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
         },
         css: {
           name: "CSS3",
           img: css,
           years: "2年",
-          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
         },
         javascript: {
           name: "JavaScript",
           img: javascript, 
           years: "2年",
-          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
         },
         node: {
           name: "Node.js",
@@ -66,7 +66,7 @@ export default {
           name: "Vue.js",
           img: vue,
           years: "2年",
-          level: "&#9733;&#9733;&#9733;&#9733;&#9733;"
+          level: "&#9733;&#9733;&#9733;&#9733;&#9734;"
         },
         nuxt: {
           name: "Nuxt.js",
